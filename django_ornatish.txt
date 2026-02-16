@@ -1,0 +1,15 @@
+# Loyihani yaratish va ishga tushirish
+
+1. python3 -m venv env && aktivlashtiramiz env\Scripts\activate 
+
+2. pip install django - djangoni o'rnatish
+
+3. django-admin startproject config .  - yangi django loyiha yaratish
+
+4. python manage.py runserver  - django loyihani ishga tushirish
+
+
+django loyiha applardan tashkil topadi
+
+1. python manage.py startapp dars1 - yangi app yaratadi
+2. config ichidagi settings.pyda INSTALLED_APPS ro'yhatiga appni qo'shamiz
