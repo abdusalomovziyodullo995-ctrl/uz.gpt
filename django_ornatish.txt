@@ -13,3 +13,14 @@ django loyiha applardan tashkil topadi
 
 1. python manage.py startapp dars1 - yangi app yaratadi
 2. config ichidagi settings.pyda INSTALLED_APPS ro'yhatiga appni qo'shamiz
+
+
+
+
+suniy intelekt va django uchun kerakli sayt https://testdriven.io/blog/django-custom-user-model/
+
+1. managers.py ochilishiga sabab bu django userini ishlatmasdan ozimiz user ochayabmiz yani 
+AbstractUser managers.py bu havfsizlik uchun sayt ichida managers.pt 
+ichida yozilishi kerak boladigan narsalar bor
+
+2.

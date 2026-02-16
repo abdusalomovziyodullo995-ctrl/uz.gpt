@@ -19,36 +19,31 @@ class User_profile(AbstractUser):
         return self.email
 
 
+class Ai_agent(models.Model):
+    name = models.CharField(max_length=51)
+    kasbi = models.CharField(max_length=51)
+    shaxsiyat = models.TextField()
+    icon = models.CharField()
+
+    def __str__(self):
+        return f"{self.name} - {self.kasbi}"
 
 
 
+class History(models.Model):
+    FROM = [
+        ("user" , "User"),
+        ("agent", "Agent"),
+    ]
+
+    user_id = models.ForeignKey(User_profile , on_delete=models.CASCADE)
+    agent_id = models.ForeignKey(Ai_agent , on_delete=models.CASCADE)
+
+    text = models.TextField()
+
+    kimdan = models.CharField(choices=FROM)
 
 
-# class kirish(models.Model):
-#     full_name = models.CharField(max_length=51)
-#     age = models.PositiveIntegerField()
-#     phone = models.CharField()
-#     email = models.EmailField()
-#     password = models.TextField()
-
-
-
-# class ai(models.Model):
-#     name = models.CharField(max_length=51)
-#     kasbi = models.CharField()
-#     harakter = models.TextField()
-#     rasm = models.ImageField()
-
-
-
-# class chat_history(models.Model):
-#     user_id = models.ForeignKey()
-#     ai_id = models.ForeignKey()
-#     text = models.TextField()
-
-
-
-    
 
 
 
