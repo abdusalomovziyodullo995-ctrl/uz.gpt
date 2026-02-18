@@ -23,4 +23,8 @@ suniy intelekt va django uchun kerakli sayt https://testdriven.io/blog/django-cu
 AbstractUser managers.py bu havfsizlik uchun sayt ichida managers.pt 
 ichida yozilishi kerak boladigan narsalar bor
 
-2.
+
+2 git config --global user.name "John Doe"
+git config --global user.email "John@test.com"
+
+
