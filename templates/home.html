@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-screen h-screen bg-[#0f172a] relative overflow-hidden flex items-center justify-center">
+
+  <!-- Animated Background Glow -->
+  <div class="absolute w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-3xl -top-40 -left-40 animate-pulse"></div>
+  <div class="absolute w-[500px] h-[500px] bg-cyan-500/30 rounded-full blur-3xl -bottom-40 -right-40 animate-pulse"></div>
+
+  <!-- Main container: endi max-w-5xl yo'q, to'liq eni oladi -->
+  <div class="relative w-full h-full flex flex-col
+              bg-slate-900/80 backdrop-blur-2xl rounded-2xl 
+              shadow-[0_0_80px_rgba(0,0,0,0.7)] border border-slate-700 overflow-hidden">
+
+    <!-- Header -->
+    <div class="px-8 py-5 border-b border-slate-700 flex items-center justify-between">
+      <h1 class="text-xl font-semibold text-white tracking-wide">
+        🤖 Tarixchi AI yordamchi
+      </h1>
+      <span class="text-sm text-slate-400">Online</span>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chatBox" class="flex-grow overflow-y-auto p-8 space-y-6">
+      <div class="max-w-lg px-5 py-3 rounded-2xl bg-slate-800 text-slate-200 shadow">
+        Salom 👋 Men Tarixchi AI. Sizga qanday yordam bera olaman?
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="p-6 border-t border-slate-700 flex items-center gap-4 bg-slate-900/60 backdrop-blur-xl">
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Xabaringizni yozing..."
+        class="flex-1 px-5 py-3 rounded-full bg-slate-800 text-white placeholder-slate-500
+               border border-slate-700 focus:border-cyan-500 
+               focus:ring-2 focus:ring-cyan-500/40 outline-none transition duration-300"
+      />
+      <button
+        onclick="sendMessage()"
+        class="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600
+               text-white font-semibold tracking-wide
+               hover:opacity-90 transition duration-300 shadow-lg shadow-cyan-500/20"
+      >
+        Yuborish
+      </button>
+    </div>
+
+  </div>
+
+<script>
+const input = document.getElementById("messageInput");
+const chatBox = document.getElementById("chatBox");
+
+function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "max-w-lg ml-auto px-5 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow";
+    userMsg.innerText = text;
+    chatBox.appendChild(userMsg);
+
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    const typing = document.createElement("div");
+    typing.className = "max-w-lg px-5 py-3 rounded-2xl bg-slate-800 text-slate-400 shadow";
+    typing.innerText = "AI yozmoqda...";
+    chatBox.appendChild(typing);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    setTimeout(() => {
+        typing.remove();
+
+        const botMsg = document.createElement("div");
+        botMsg.className = "max-w-lg px-5 py-3 rounded-2xl bg-slate-800 text-slate-200 shadow";
+        botMsg.innerText = "Bu demo javob. Backend ulansa real AI javob qaytaradi.";
+        chatBox.appendChild(botMsg);
+
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1500);
+}
+
+input.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+</script>
+
+</body>
+</html>

@@ -29,7 +29,6 @@ class Ai_agent(models.Model):
         return f"{self.name} - {self.kasbi}"
 
 
-
 class History(models.Model):
     FROM = [
         ("user" , "User"),
@@ -38,10 +37,9 @@ class History(models.Model):
 
     user_id = models.ForeignKey(User_profile , on_delete=models.CASCADE)
     agent_id = models.ForeignKey(Ai_agent , on_delete=models.CASCADE)
-
     text = models.TextField()
-
     kimdan = models.CharField(choices=FROM)
+    
 
 
 

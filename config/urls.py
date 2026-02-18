@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from gpt.views import Html
+from gpt.views import login_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',Html)
+    path("login",login_user , name="login_user")
 
 ]
