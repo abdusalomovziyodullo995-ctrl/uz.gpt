@@ -1,5 +1,5 @@
-from django.shortcuts import render , redirect
-from django.contrib.auth import authenticate
+# from django.shortcuts import render , redirect
+# from django.contrib.auth import authenticate
 
 
 # def login_user(request):
@@ -18,6 +18,8 @@ from django.contrib.auth import authenticate
 #         return render(request , "login.html")    
 
 
+
+#  <<<<<<<<<<<<      >>>>>>>>>>>>>
 
 
 
@@ -41,6 +43,9 @@ def login_user(request):
             error_message = "Email yoki parol hato"
 
     return render(request, "login.html", {"error_message": error_message})
+
+
+
 
 
 
