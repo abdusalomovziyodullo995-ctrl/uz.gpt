@@ -18,6 +18,8 @@
 #         return render(request , "login.html")    
 
 
+# redirect vazifasi foydalanuvchini boshqa URL ga o‘tkazish.
+
 
 #  <<<<<<<<<<<<      >>>>>>>>>>>>>
 
@@ -25,11 +27,14 @@
 
 
 
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.contrib.auth import authenticate
+from .models import User_profile
+
 
 def login_user(request):
-    error_message = ""  # Xato xabar uchun
+
+    error_message = "" # Xato xabar uchun
 
     if request.method == "POST":
         email = request.POST.get("email")
@@ -43,6 +48,36 @@ def login_user(request):
             error_message = "Email yoki parol hato"
 
     return render(request, "login.html", {"error_message": error_message})
+
+
+
+# Yangi user qoshish
+
+def register(request):
+    if request.method == "POST":
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        try:
+          new_user = User_profile.objects.create_user(
+              first_name = first_name,
+              last_name = last_name,
+              email = email,
+              password = password
+          )
+          return redirect("login_user")
+        
+        except Exception as e:
+            return render(request , "register.html")
+        
+    # malumotimiz get bolganda else: ishlaydi
+
+    else:
+            return render(request , "register.html")
+
+
 
 
 

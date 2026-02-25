@@ -39,7 +39,9 @@ class History(models.Model):
     agent_id = models.ForeignKey(Ai_agent , on_delete=models.CASCADE)
     text = models.TextField()
     kimdan = models.CharField(choices=FROM)
-    
+
+
+
 
 
 

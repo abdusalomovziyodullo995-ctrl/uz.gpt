@@ -21,7 +21,7 @@
       {{ error_message }}
     </div>
     {% endif %}
-
+    
     <div class="mb-8 text-center">
       <h1 class="text-3xl font-bold text-white tracking-wide">Kirish</h1>
       <p class="text-slate-400 text-sm mt-2">Tizimga kirish uchun ma'lumotlarni kiriting</p>
@@ -71,12 +71,11 @@
     </form>
     <p class="text-center text-slate-400 text-sm mt-8">
       Hisobingiz yo‘qmi?
-      <a href="#" class="text-purple-400 hover:text-purple-300 transition">
+      <a href="{% url 'register' %}" method="post" class="text-purple-400 hover:text-purple-300 transition">
         Ro‘yxatdan o‘tish
       </a>
     </p>
   </div>
-
 
   {% comment %} animatsiya  {% endcomment %}
 
