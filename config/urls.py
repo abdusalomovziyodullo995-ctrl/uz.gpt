@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from gpt.views import login_user , register
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",login_user , name="login_user"),
