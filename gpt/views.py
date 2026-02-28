@@ -30,6 +30,7 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth import authenticate
 from .models import User_profile
+from main import chat_agent
 
 
 def login_user(request):
@@ -50,8 +51,8 @@ def login_user(request):
     return render(request, "login.html", {"error_message": error_message})
 
 
-
 # Yangi user qoshish
+
 
 def register(request):
     if request.method == "POST":
@@ -59,6 +60,7 @@ def register(request):
         last_name = request.POST.get("last_name")
         email = request.POST.get("email")
         password = request.POST.get("password")
+
 
         try:
           new_user = User_profile.objects.create_user(
@@ -72,10 +74,18 @@ def register(request):
         except Exception as e:
             return render(request , "register.html")
         
-    # malumotimiz get bolganda else: ishlaydi
-
+        # Get bolsa ishlaydi
     else:
             return render(request , "register.html")
+
+
+
+def home(request):
+    if request.method == "GET":
+        matematik = chat_agent(role = "matematik" , message="uchburchakka ichki chizilgan aylana radiusi")
+
+    return render(request,"home.html" , {"matematik":matematik})
+
 
 
 
